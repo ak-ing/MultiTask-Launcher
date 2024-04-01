@@ -4,6 +4,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
+import androidx.recyclerview.widget.DiffUtil
 import java.util.function.Consumer
 
 data class AppMetaData(
@@ -13,20 +14,15 @@ data class AppMetaData(
     var mLaunchCallback: Consumer<View>? = null, //启动
     var mAlternateLaunchCallback: Consumer<Context>? = null, //交叉启动
     var isSystemApp: Boolean = false
-) {
-    override fun equals(other: Any?): Boolean {
-        return if (other !is AppMetaData) {
-            false
-        } else {
-            other.componentName == componentName
-        }
+)
+
+object AppMetaDiff : DiffUtil.ItemCallback<AppMetaData>() {
+    override fun areItemsTheSame(oldItem: AppMetaData, newItem: AppMetaData): Boolean {
+        return oldItem.componentName == newItem.componentName
     }
 
-    override fun hashCode(): Int {
-        return componentName.hashCode()
+    override fun areContentsTheSame(oldItem: AppMetaData, newItem: AppMetaData): Boolean {
+        return oldItem == newItem
     }
 
-    override fun toString(): String {
-        return "mDisplayName : $displayName, $componentName"
-    }
 }

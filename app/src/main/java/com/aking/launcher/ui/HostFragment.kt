@@ -11,6 +11,7 @@ class HostFragment : BaseFragment<FragmentHostBinding>(FragmentHostBinding::bind
 
     override fun FragmentHostBinding.initView() {
         workSpace.adapter = FragmentPageAdapter(this@HostFragment, fragmentCreators)
+        workSpace.setCurrentItem(1, false)
     }
 
 }

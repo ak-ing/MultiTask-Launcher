@@ -5,6 +5,6 @@ import com.aking.launcher.databinding.FragmentAppsBinding
 
 class AppsScreen : BaseFragment<FragmentAppsBinding>(FragmentAppsBinding::bind) {
     override fun FragmentAppsBinding.initView() {
-        TODO("Not yet implemented")
+
     }
 }

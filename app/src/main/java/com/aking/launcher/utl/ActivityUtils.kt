@@ -11,8 +11,8 @@ import com.aking.launcher.R
 object ActivityUtils {
     fun startActivitySafely(view: View, intent: Intent?, vararg flags: Int): Boolean {
         var success = false
-        if (view != null && intent != null) {
-            if (flags != null && flags.size > 0) {
+        if (intent != null) {
+            if (flags.isNotEmpty()) {
                 for (flag: Int in flags) {
                     intent.addFlags(flag)
                 }
@@ -48,8 +48,8 @@ object ActivityUtils {
      */
     fun startActivitySafely(context: Context, intent: Intent?, vararg flags: Int): Boolean {
         var success = false
-        if (context != null && intent != null) {
-            if (flags != null && flags.size > 0) {
+        if (intent != null) {
+            if (flags.isNotEmpty()) {
                 for (flag: Int in flags) {
                     intent.addFlags(flag)
                 }
